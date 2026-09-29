@@ -1,198 +1,588 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Jeann Rocha</title>
+    <title>Jeann Rocha | Mathematics</title>
+
+    <meta name="description"
+          content="Jeann Rocha — Mathematics student interested in stochastic calculus, functional Itô calculus and optimization.">
 
     <style>
+
+        /* =====================================================
+           GENERAL
+           ===================================================== */
+
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
+            background: #f8f9fb;
+            color: #20242a;
             font-family: Georgia, "Times New Roman", serif;
-            color: #222;
-            background: #fafafa;
-            line-height: 1.7;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 60px 30px;
-        }
-
-        header {
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 30px;
-            margin-bottom: 45px;
-        }
-
-        h1 {
-            font-size: 42px;
-            font-weight: normal;
-            margin: 0;
-        }
-
-        .subtitle {
-            color: #666;
-            font-size: 18px;
-            margin-top: 5px;
-        }
-
-        nav {
-            margin-top: 25px;
-        }
-
-        nav a {
-            color: #333;
-            text-decoration: none;
-            margin-right: 25px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        h2 {
-            font-size: 26px;
-            font-weight: normal;
-            margin-top: 45px;
+            line-height: 1.75;
         }
 
         a {
-            color: #174a7e;
+            color: #234f78;
+            text-decoration: none;
         }
 
-        footer {
-            margin-top: 70px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            color: #777;
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 35px;
+        }
+
+
+        /* =====================================================
+           DECORATIVE BACKGROUND
+           ===================================================== */
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: -150px;
+            right: -150px;
+            width: 420px;
+            height: 420px;
+
+            border: 1px solid rgba(35, 79, 120, 0.08);
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            bottom: -180px;
+            left: -180px;
+            width: 450px;
+            height: 450px;
+
+            border: 1px solid rgba(35, 79, 120, 0.06);
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           HEADER
+           ===================================================== */
+
+        header {
+            padding: 75px 0 35px;
+            border-bottom: 1px solid #dfe3e8;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 40px;
+        }
+
+        .name {
+            margin: 0;
+            font-size: 48px;
+            font-weight: normal;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            margin-top: 5px;
+            color: #69727d;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .social {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .social a {
+            margin-left: 18px;
+            color: #555;
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+           ===================================================== */
+
+        nav {
+            padding: 18px 0;
+            border-bottom: 1px solid #e5e8ec;
+            font-family: Arial, sans-serif;
             font-size: 14px;
         }
 
-        @media (max-width: 600px) {
+        nav a {
+            margin-right: 28px;
+            color: #424850;
+        }
+
+        nav a:hover {
+            color: #234f78;
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           MAIN
+           ===================================================== */
+
+        main {
+            padding: 20px 0 70px;
+        }
+
+        section {
+            padding-top: 48px;
+        }
+
+        h2 {
+            margin: 0 0 20px;
+            font-size: 27px;
+            font-weight: normal;
+            color: #20242a;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 38px;
+            height: 2px;
+            background: #234f78;
+            margin-top: 9px;
+        }
+
+        p {
+            max-width: 760px;
+            margin: 0 0 17px;
+        }
+
+
+        /* =====================================================
+           INTRO
+           ===================================================== */
+
+        .intro {
+            padding-top: 55px;
+            padding-bottom: 15px;
+        }
+
+        .intro-text {
+            font-size: 20px;
+            line-height: 1.65;
+            max-width: 760px;
+        }
+
+
+        /* =====================================================
+           RESEARCH CARDS
+           ===================================================== */
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+            max-width: 800px;
+        }
+
+        .research-item {
+            padding: 22px 24px;
+            background: white;
+            border: 1px solid #e1e5e9;
+            transition: transform 0.2s ease,
+                        box-shadow 0.2s ease;
+        }
+
+        .research-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
+
+        .research-item h3 {
+            margin: 0 0 7px;
+            font-size: 18px;
+            font-weight: normal;
+            color: #234f78;
+        }
+
+        .research-item p {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #656d76;
+        }
+
+
+        /* =====================================================
+           LISTS
+           ===================================================== */
+
+        ul {
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+
+        /* =====================================================
+           LINKS / CONTACT
+           ===================================================== */
+
+        .links {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .links a {
+            margin-right: 20px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        footer {
+            border-top: 1px solid #dfe3e8;
+            padding: 25px 0 40px;
+
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            color: #7b838c;
+        }
+
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (max-width: 700px) {
+
             .container {
-                padding: 40px 20px;
+                padding: 0 22px;
             }
 
-            h1 {
-                font-size: 34px;
+            header {
+                padding-top: 45px;
+            }
+
+            .header-content {
+                display: block;
+            }
+
+            .name {
+                font-size: 38px;
+            }
+
+            .social {
+                margin-top: 15px;
+            }
+
+            .social a {
+                margin-left: 0;
+                margin-right: 18px;
+            }
+
+            nav {
+                line-height: 2.3;
             }
 
             nav a {
-                display: inline-block;
-                margin-bottom: 8px;
+                margin-right: 18px;
+            }
+
+            .intro-text {
+                font-size: 18px;
+            }
+
+            .research-grid {
+                grid-template-columns: 1fr;
             }
         }
+
     </style>
 </head>
+
 
 <body>
 
 <div class="container">
 
-    <header>
-        <h1>Jeann Rocha</h1>
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
 
-        <div class="subtitle">
-            Mathematics Student
+    <header>
+
+        <div class="header-content">
+
+            <div>
+                <h1 class="name">Jeann Rocha</h1>
+
+                <div class="subtitle">
+                    Mathematics Student
+                </div>
+            </div>
+
+            <div class="social">
+                <a href="https://github.com/Jeann-Rocha">
+                    GitHub
+                </a>
+
+                <a href="#">
+                    ORCID
+                </a>
+
+                <a href="#">
+                    Lattes
+                </a>
+            </div>
+
         </div>
 
-        <nav>
-            <a href="#about">About</a>
-            <a href="#research">Research</a>
-            <a href="#teaching">Teaching</a>
-            <a href="#notes">Notes</a>
-            <a href="#contact">Contact</a>
-        </nav>
     </header>
 
 
-    <section id="about">
-        <h2>About</h2>
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
 
-        <p>
-            I am a mathematics student interested in mathematical analysis,
-            stochastic calculus, functional Itô calculus and optimization.
-        </p>
+    <nav>
 
-        <p>
-            This website contains information about my academic activities,
-            research interests, projects and lecture notes.
-        </p>
-    </section>
+        <a href="#about">About</a>
 
+        <a href="#research">Research</a>
 
-    <section id="research">
-        <h2>Research</h2>
+        <a href="#teaching">Teaching</a>
 
-        <p>
-            My current research interests include:
-        </p>
+        <a href="#notes">Notes</a>
 
-        <ul>
-            <li>Stochastic Calculus</li>
-            <li>Functional Itô Calculus</li>
-            <li>Path-dependent processes</li>
-            <li>Optimization</li>
-        </ul>
-    </section>
+        <a href="#contact">Contact</a>
+
+    </nav>
 
 
-    <section id="teaching">
-        <h2>Teaching</h2>
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
 
-        <p>
-            Information about teaching activities, tutoring and academic
-            materials will be available here.
-        </p>
-    </section>
+    <main>
 
 
-    <section id="notes">
-        <h2>Notes</h2>
+        <!-- INTRO -->
 
-        <p>
-            A collection of mathematical notes and study materials.
-        </p>
+        <section class="intro">
 
-        <ul>
-            <li>Real Analysis</li>
-            <li>Measure Theory</li>
-            <li>Stochastic Calculus</li>
-            <li>Linear Algebra</li>
-        </ul>
-    </section>
+            <p class="intro-text">
+                I am a mathematics student interested in mathematical
+                analysis, stochastic calculus, functional Itô calculus,
+                and optimization.
+            </p>
+
+        </section>
 
 
-    <section id="contact">
-        <h2>Contact</h2>
+        <!-- ABOUT -->
 
-        <p>
-            Email:
-            <a href="mailto:seu-email@example.com">
-                seu-email@example.com
-            </a>
-        </p>
+        <section id="about">
 
-        <p>
-            <a href="https://github.com/Jeann-Rocha">
-                GitHub
-            </a>
-        </p>
-    </section>
+            <h2>About</h2>
 
+            <p>
+                My academic interests lie broadly in mathematics,
+                particularly in areas involving analysis, probability,
+                stochastic processes, and optimization.
+            </p>
+
+            <p>
+                This website collects information about my academic
+                activities, research projects, teaching, and mathematical
+                notes.
+            </p>
+
+        </section>
+
+
+        <!-- RESEARCH -->
+
+        <section id="research">
+
+            <h2>Research</h2>
+
+            <p>
+                My current research interests include:
+            </p>
+
+
+            <div class="research-grid">
+
+                <div class="research-item">
+
+                    <h3>Stochastic Calculus</h3>
+
+                    <p>
+                        Brownian motion, Itô integration, stochastic
+                        processes and stochastic differential equations.
+                    </p>
+
+                </div>
+
+
+                <div class="research-item">
+
+                    <h3>Functional Itô Calculus</h3>
+
+                    <p>
+                        Calculus for functionals depending on the past
+                        trajectory of a stochastic process.
+                    </p>
+
+                </div>
+
+
+                <div class="research-item">
+
+                    <h3>Path-dependent Processes</h3>
+
+                    <p>
+                        Stochastic systems whose evolution depends on
+                        the history of the state variable.
+                    </p>
+
+                </div>
+
+
+                <div class="research-item">
+
+                    <h3>Optimization</h3>
+
+                    <p>
+                        Smooth optimization, accelerated methods and
+                        convergence analysis.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TEACHING -->
+
+        <section id="teaching">
+
+            <h2>Teaching</h2>
+
+            <p>
+                Information about teaching activities, tutoring,
+                lectures and academic materials will be available here.
+            </p>
+
+        </section>
+
+
+        <!-- NOTES -->
+
+        <section id="notes">
+
+            <h2>Notes</h2>
+
+            <p>
+                I am gradually building a collection of mathematical
+                notes and study materials.
+            </p>
+
+            <ul>
+
+                <li>Real Analysis</li>
+
+                <li>Measure Theory</li>
+
+                <li>Stochastic Calculus</li>
+
+                <li>Linear Algebra</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section id="contact">
+
+            <h2>Contact</h2>
+
+            <p>
+                The best way to contact me is by email.
+            </p>
+
+            <div class="links">
+
+                <a href="mailto:seu-email@example.com">
+                    Email
+                </a>
+
+                <a href="https://github.com/Jeann-Rocha">
+                    GitHub
+                </a>
+
+                <a href="#">
+                    ORCID
+                </a>
+
+                <a href="#">
+                    Lattes
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
 
     <footer>
+
         © 2026 Jeann Rocha
+
     </footer>
 
 </div>
 
 </body>
+
 </html>
+```
