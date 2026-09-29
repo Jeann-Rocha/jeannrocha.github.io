@@ -1,7 +1,3 @@
-/* =====================================================
-   GENERAL
-   ===================================================== */
-
 * {
     box-sizing: border-box;
 }
@@ -18,6 +14,34 @@ body {
     line-height: 1.75;
 }
 
+/* Fundo geométrico */
+
+body::before {
+    content: "";
+    position: fixed;
+    top: -180px;
+    right: -180px;
+    width: 450px;
+    height: 450px;
+    border: 1px solid rgba(35, 79, 120, 0.08);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    bottom: -200px;
+    left: -200px;
+    width: 500px;
+    height: 500px;
+    border: 1px solid rgba(35, 79, 120, 0.06);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
 a {
     color: #234f78;
     text-decoration: none;
@@ -28,47 +52,15 @@ a:hover {
 }
 
 .container {
-    max-width: 1000px;
+    width: min(1000px, calc(100% - 60px));
     margin: 0 auto;
-    padding: 0 35px;
 }
 
 
-/* =====================================================
-   DECORATIVE BACKGROUND
-   ===================================================== */
-
-body::before {
-    content: "";
-    position: fixed;
-    top: -150px;
-    right: -150px;
-    width: 420px;
-    height: 420px;
-    border: 1px solid rgba(35, 79, 120, 0.08);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-body::after {
-    content: "";
-    position: fixed;
-    bottom: -180px;
-    left: -180px;
-    width: 450px;
-    height: 450px;
-    border: 1px solid rgba(35, 79, 120, 0.06);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-
-/* =====================================================
-   HEADER
-   ===================================================== */
+/* HEADER */
 
 header {
-    padding: 75px 0 35px;
+    padding: 70px 0 32px;
     border-bottom: 1px solid #dfe3e8;
 }
 
@@ -87,17 +79,16 @@ header {
 }
 
 .subtitle {
-    margin-top: 5px;
+    margin-top: 4px;
     color: #69727d;
     font-family: Arial, sans-serif;
     font-size: 15px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
 }
 
 .social {
     font-family: Arial, sans-serif;
     font-size: 14px;
-    white-space: nowrap;
 }
 
 .social a {
@@ -106,12 +97,10 @@ header {
 }
 
 
-/* =====================================================
-   NAVIGATION
-   ===================================================== */
+/* NAVIGATION */
 
 nav {
-    padding: 18px 0;
+    padding: 17px 0;
     border-bottom: 1px solid #e5e8ec;
     font-family: Arial, sans-serif;
     font-size: 14px;
@@ -128,12 +117,10 @@ nav a:hover {
 }
 
 
-/* =====================================================
-   MAIN
-   ===================================================== */
+/* MAIN */
 
 main {
-    padding: 20px 0 70px;
+    padding-bottom: 70px;
 }
 
 section {
@@ -141,10 +128,9 @@ section {
 }
 
 h2 {
-    margin: 0 0 20px;
+    margin: 0 0 22px;
     font-size: 27px;
     font-weight: normal;
-    color: #20242a;
 }
 
 h2::after {
@@ -152,8 +138,8 @@ h2::after {
     display: block;
     width: 38px;
     height: 2px;
-    background: #234f78;
     margin-top: 9px;
+    background: #234f78;
 }
 
 p {
@@ -162,40 +148,34 @@ p {
 }
 
 
-/* =====================================================
-   INTRO
-   ===================================================== */
+/* INTRO */
 
 .intro {
     padding-top: 55px;
-    padding-bottom: 15px;
 }
 
 .intro-text {
+    max-width: 760px;
     font-size: 20px;
     line-height: 1.65;
-    max-width: 760px;
 }
 
 
-/* =====================================================
-   RESEARCH CARDS
-   ===================================================== */
+/* RESEARCH */
 
 .research-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 18px;
-    margin-top: 25px;
     max-width: 800px;
+    margin-top: 25px;
 }
 
 .research-item {
     padding: 22px 24px;
     background: white;
     border: 1px solid #e1e5e9;
-    transition: transform 0.2s ease,
-                box-shadow 0.2s ease;
+    transition: 0.2s ease;
 }
 
 .research-item:hover {
@@ -205,23 +185,21 @@ p {
 
 .research-item h3 {
     margin: 0 0 7px;
+    color: #234f78;
     font-size: 18px;
     font-weight: normal;
-    color: #234f78;
 }
 
 .research-item p {
     margin: 0;
+    color: #656d76;
     font-family: Arial, sans-serif;
     font-size: 13px;
     line-height: 1.6;
-    color: #656d76;
 }
 
 
-/* =====================================================
-   LISTS
-   ===================================================== */
+/* LISTAS */
 
 ul {
     padding-left: 22px;
@@ -232,9 +210,7 @@ li {
 }
 
 
-/* =====================================================
-   CONTACT / LINKS
-   ===================================================== */
+/* CONTACT */
 
 .links {
     font-family: Arial, sans-serif;
@@ -246,27 +222,23 @@ li {
 }
 
 
-/* =====================================================
-   FOOTER
-   ===================================================== */
+/* FOOTER */
 
 footer {
-    border-top: 1px solid #dfe3e8;
     padding: 25px 0 40px;
+    border-top: 1px solid #dfe3e8;
+    color: #7b838c;
     font-family: Arial, sans-serif;
     font-size: 12px;
-    color: #7b838c;
 }
 
 
-/* =====================================================
-   MOBILE
-   ===================================================== */
+/* MOBILE */
 
 @media (max-width: 700px) {
 
     .container {
-        padding: 0 22px;
+        width: calc(100% - 40px);
     }
 
     header {
