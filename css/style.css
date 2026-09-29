@@ -1,1 +1,308 @@
+/* =====================================================
+   GENERAL
+   ===================================================== */
 
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #f8f9fb;
+    color: #20242a;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.75;
+}
+
+a {
+    color: #234f78;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 35px;
+}
+
+
+/* =====================================================
+   DECORATIVE BACKGROUND
+   ===================================================== */
+
+body::before {
+    content: "";
+    position: fixed;
+    top: -150px;
+    right: -150px;
+    width: 420px;
+    height: 420px;
+    border: 1px solid rgba(35, 79, 120, 0.08);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    bottom: -180px;
+    left: -180px;
+    width: 450px;
+    height: 450px;
+    border: 1px solid rgba(35, 79, 120, 0.06);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+header {
+    padding: 75px 0 35px;
+    border-bottom: 1px solid #dfe3e8;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+}
+
+.name {
+    margin: 0;
+    font-size: 48px;
+    font-weight: normal;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    margin-top: 5px;
+    color: #69727d;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+.social {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.social a {
+    margin-left: 18px;
+    color: #555;
+}
+
+
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
+
+nav {
+    padding: 18px 0;
+    border-bottom: 1px solid #e5e8ec;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+nav a {
+    margin-right: 28px;
+    color: #424850;
+}
+
+nav a:hover {
+    color: #234f78;
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   MAIN
+   ===================================================== */
+
+main {
+    padding: 20px 0 70px;
+}
+
+section {
+    padding-top: 48px;
+}
+
+h2 {
+    margin: 0 0 20px;
+    font-size: 27px;
+    font-weight: normal;
+    color: #20242a;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 38px;
+    height: 2px;
+    background: #234f78;
+    margin-top: 9px;
+}
+
+p {
+    max-width: 760px;
+    margin: 0 0 17px;
+}
+
+
+/* =====================================================
+   INTRO
+   ===================================================== */
+
+.intro {
+    padding-top: 55px;
+    padding-bottom: 15px;
+}
+
+.intro-text {
+    font-size: 20px;
+    line-height: 1.65;
+    max-width: 760px;
+}
+
+
+/* =====================================================
+   RESEARCH CARDS
+   ===================================================== */
+
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+    max-width: 800px;
+}
+
+.research-item {
+    padding: 22px 24px;
+    background: white;
+    border: 1px solid #e1e5e9;
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.research-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.research-item h3 {
+    margin: 0 0 7px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #234f78;
+}
+
+.research-item p {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #656d76;
+}
+
+
+/* =====================================================
+   LISTS
+   ===================================================== */
+
+ul {
+    padding-left: 22px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+
+/* =====================================================
+   CONTACT / LINKS
+   ===================================================== */
+
+.links {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.links a {
+    margin-right: 20px;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+footer {
+    border-top: 1px solid #dfe3e8;
+    padding: 25px 0 40px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #7b838c;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .container {
+        padding: 0 22px;
+    }
+
+    header {
+        padding-top: 45px;
+    }
+
+    .header-content {
+        display: block;
+    }
+
+    .name {
+        font-size: 38px;
+    }
+
+    .social {
+        margin-top: 15px;
+    }
+
+    .social a {
+        margin-left: 0;
+        margin-right: 18px;
+    }
+
+    nav {
+        line-height: 2.3;
+    }
+
+    nav a {
+        margin-right: 18px;
+    }
+
+    .intro-text {
+        font-size: 18px;
+    }
+
+    .research-grid {
+        grid-template-columns: 1fr;
+    }
+}
