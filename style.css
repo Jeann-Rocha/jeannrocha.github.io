@@ -557,6 +557,8 @@ footer {
     flex-direction: column;
     gap: 6px;
 }
+  
+}
 
 
 css
@@ -767,6 +769,4 @@ css
         padding-top: 0;
     }
 
-}
-  
 }
