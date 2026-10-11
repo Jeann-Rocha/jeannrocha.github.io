@@ -458,3 +458,110 @@ p { margin-bottom: 1rem; }
 .bio-text {
   text-align: justify;
 }
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monitorias — Seu Nome</title>
+  <meta name="description" content="Materiais das disciplinas em que atuei como monitor(a).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Seu Nome</a>
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="notas.html">Notas</a>
+        <a href="monitorias.html" class="active">Monitorias</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Monitorias</h2>
+        <p class="section-sub">
+          Disciplinas em que atuei como monitor(a), com os materiais que preparei
+          (listas, resumos, slides, gravações).
+        </p>
+
+        <div class="monitoria-grid">
+
+          <!-- ============================================
+               PREENCHA / DUPLIQUE cada <article> abaixo
+               ============================================ -->
+          <article class="monitoria-card">
+            <h3>Cálculo I</h3>
+            <p class="monitoria-meta">Monitoria · 2025.1</p>
+            <p class="monitoria-prof">Prof.<strong> Nome do Professor</strong></p>
+            <p class="monitoria-desc">
+              Monitoria semanal com resolução de exercícios e plantão de dúvidas
+              sobre limites, derivadas e aplicações.
+            </p>
+
+            <p class="materials-title">Materiais</p>
+            <ul class="materials-list">
+              <li><a href="monitorias/calculo-1/lista-1.pdf">Lista 1 — Limites <span class="material-type">(PDF)</span></a></li>
+              <li><a href="monitorias/calculo-1/lista-2.pdf">Lista 2 — Derivadas <span class="material-type">(PDF)</span></a></li>
+              <li><a href="monitorias/calculo-1/resumo.pdf">Resumo geral <span class="material-type">(PDF)</span></a></li>
+            </ul>
+          </article>
+
+          <article class="monitoria-card">
+            <h3>Álgebra Linear</h3>
+            <p class="monitoria-meta">Monitoria · 2024.2</p>
+            <p class="monitoria-prof">Prof.<strong> Nome do Professor</strong></p>
+            <p class="monitoria-desc">
+              Apoio aos alunos com foco em espaços vetoriais, transformações
+              lineares e diagonalização.
+            </p>
+
+            <p class="materials-title">Materiais</p>
+            <ul class="materials-list">
+              <li><a href="monitorias/algebra-linear/notas.pdf">Notas de aula <span class="material-type">(PDF)</span></a></li>
+              <li><a href="monitorias/algebra-linear/lista-extra.pdf">Lista extra <span class="material-type">(PDF)</span></a></li>
+              <li><a href="monitorias/algebra-linear/slides.pdf">Slides de revisão <span class="material-type">(PDF)</span></a></li>
+            </ul>
+          </article>
+
+          <article class="monitoria-card">
+            <h3>Introdução à Análise Real</h3>
+            <p class="monitoria-meta">Monitoria · 2024.1</p>
+            <p class="monitoria-prof">Prof.<strong> Nome do Professor</strong></p>
+            <p class="monitoria-desc">
+              Monitoria com ênfase em demonstrações e no rigor matemático:
+              sequências, séries e continuidade.
+            </p>
+
+            <p class="materials-title">Materiais</p>
+            <ul class="materials-list">
+              <li><a href="monitorias/analise-real/resumo.pdf">Resumo de teoremas <span class="material-type">(PDF)</span></a></li>
+              <li><a href="monitorias/analise-real/exercicios.pdf">Exercícios resolvidos <span class="material-type">(PDF)</span></a></li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Seu Nome. Feito com HTML e CSS puros.</p>
+      <p class="footer-note"><a href="#top">Voltar ao topo ↑</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
