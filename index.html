@@ -1,180 +1,97 @@
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Jeann Rocha | Mathematics</title>
-
-    <meta name="description"
-          content="Jeann Rocha — Mathematics student interested in analysis, probability, stochastic calculus, functional Itô calculus and optimization.">
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seu Nome — Matemática</title>
+  <meta name="description" content="Site pessoal de Seu Nome, estudante de Matemática.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<div class="container">
-
-<header>
-    <div class="header-content">
-
-        <div>
-            <h1 class="name">Jeann Rocha</h1>
-            <div class="subtitle">Mathematics Student</div>
-        </div>
-
-        <div class="social">
-            <a href="https://github.com/Jeann-Rocha" target="_blank">GitHub</a>
-
-            <a href="https://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K2256445H5"
-               target="_blank">
-                Lattes
-            </a>
-
-            <a href="mailto:jeannrochasilva@gmail.com">Email</a>
-        </div>
-
+  <!-- CABEÇALHO -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Seu Nome</a>
+      <nav class="nav">
+        <a href="index.html" class="active">Início</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="notas.html">Notas</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="contato.html">Contato</a>
+      </nav>
     </div>
-</header>
+  </header>
 
-
-<nav>
-    <a href="index.html">About</a>
-    <a href="notes.html">Notes</a>
-    <a href="cv.html">CV</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-
-<main>
-
-    <section class="hero">
-
-        <div class="hero-content">
-
-            <p class="eyebrow">MATHEMATICS</p>
-
-            <h2>
-                Exploring mathematics through
-                <em>analysis, probability</em>
-                and optimization.
-            </h2>
-
-            <p class="hero-text">
-                I am a mathematics student interested in mathematical
-                analysis, stochastic calculus, Functional Itô Calculus,
-                path-dependent systems and optimization.
-            </p>
-
-            <div class="hero-links">
-
-                <a class="button" href="notes.html">
-                    Notes
-                </a>
-
-                <a class="text-link" href="cv.html">
-                    Curriculum Vitae →
-                </a>
-
-            </div>
-
+  <main>
+    <!-- HERO -->
+    <section class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <!-- PREENCHA: sua área -->
+          <p class="eyebrow">Estudante de Matemática</p>
+          <!-- PREENCHA: seu nome -->
+          <h1>Seu Nome Completo</h1>
+          <!-- PREENCHA: frase de apresentação -->
+          <p class="lead">
+            Estudante de Matemática na <strong>Nome da Universidade</strong>,
+            interessado(a) em <em>Área 1</em>, <em>Área 2</em> e <em>Área 3</em>.
+          </p>
+          <!-- PREENCHA: parágrafo livre -->
+          <p>
+            Escreva aqui um parágrafo sobre sua trajetória: onde estuda, em que
+            semestre está, o que te motiva na matemática, com o que tem trabalhado
+            ultimamente, iniciação científica, monitorias, olimpíadas, etc.
+          </p>
+          <!-- PREENCHA: links rápidos -->
+          <ul class="quick-links">
+            <li><a href="mailto:seu.email@exemplo.com">E-mail</a></li>
+            <li><a href="https://github.com/seu-usuario" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="http://lattes.cnpq.br/SEU-ID" target="_blank" rel="noopener">Lattes</a></li>
+            <li><a href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noopener">ORCID</a></li>
+          </ul>
         </div>
-
-        <div class="hero-symbol">
-            ∫
-        </div>
-
+        <figure class="hero-photo">
+          <!-- PREENCHA: coloque foto.jpg na pasta -->
+          <img src="foto.jpg" alt="Foto de Seu Nome" onerror="this.style.display='none'">
+          <figcaption class="photo-fallback">Sua foto aqui</figcaption>
+        </figure>
+      </div>
     </section>
 
-
-    <section id="about">
-
-        <div class="section-heading">
-            <span>01</span>
-            <h2>About</h2>
+    <!-- PRÉVIA DE INTERESSES (opcional) -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Áreas de interesse</h2>
+        <p class="section-sub">Temas que estudo e nos quais gostaria de pesquisar.</p>
+        <div class="grid-cards">
+          <article class="card">
+            <h3>Área 1</h3>
+            <p>Breve descrição do seu interesse.</p>
+          </article>
+          <article class="card">
+            <h3>Área 2</h3>
+            <p>Breve descrição do seu interesse.</p>
+          </article>
+          <article class="card">
+            <h3>Área 3</h3>
+            <p>Breve descrição do seu interesse.</p>
+          </article>
         </div>
-
-        <p>
-            My academic interests lie broadly in mathematics, with
-            an emphasis on analysis, probability and optimization.
-        </p>
-
-        <p>
-            I am particularly interested in stochastic calculus and
-            mathematical tools for systems whose evolution depends
-            on the history of a state variable. I also study smooth
-            optimization and accelerated first-order methods.
-        </p>
-
+      </div>
     </section>
+  </main>
 
-
-    <section id="notes">
-
-        <div class="section-heading">
-            <span>02</span>
-            <h2>Notes</h2>
-        </div>
-
-        <p>
-            A growing collection of mathematical notes and study
-            materials developed throughout my studies.
-        </p>
-
-        <div class="note-list">
-            <span>Real Analysis</span>
-            <span>Measure Theory</span>
-            <span>Stochastic Calculus</span>
-            <span>Linear Algebra</span>
-        </div>
-
-    </section>
-
-
-    <section id="contact">
-
-        <div class="section-heading">
-            <span>03</span>
-            <h2>Contact</h2>
-        </div>
-
-        <p>
-            For academic inquiries or collaboration, feel free
-            to get in touch.
-        </p>
-
-        <div class="contact-links">
-
-            <a href="mailto:jeannrochasilva@gmail.com">
-                jeannrochasilva@gmail.com
-            </a>
-
-            <a href="https://github.com/Jeann-Rocha" target="_blank">
-                GitHub
-            </a>
-
-            <a href="https://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K2256445H5"
-               target="_blank">
-                Lattes
-            </a>
-
-        </div>
-
-    </section>
-
-</main>
-
-
-<footer>
-    <span>© 2026 Jeann Rocha</span>
-    <span>Mathematics</span>
-</footer>
-
-
-</div>
+  <!-- RODAPÉ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Seu Nome. Feito com HTML e CSS puros.</p>
+      <p class="footer-note"><a href="#top">Voltar ao topo ↑</a></p>
+    </div>
+  </footer>
 
 </body>
 </html>
