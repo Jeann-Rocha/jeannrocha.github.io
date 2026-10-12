@@ -56,8 +56,9 @@
       const container = document.getElementById('markdown-content');
       const downloadLink = document.getElementById('raw-download');
 
-      // Sanitização básica: aceita apenas .md dentro de pastas do site
-      const safePattern = /^[a-zA-Z0-9_\-\/]+\.md$/;
+      // Sanitização básica: Aceita nomes com letras, números, _ - / . % e também espaços
+      // (o navegador codifica espaços como %20 e parênteses como %28/%29)
+      const safePattern = /^[a-zA-Z0-9_\-\/\.%\s\(\)]+\.md$/;
 
       if (!file || !safePattern.test(file)) {
         container.innerHTML = '<p><strong>Arquivo não especificado ou inválido.</strong></p>';
