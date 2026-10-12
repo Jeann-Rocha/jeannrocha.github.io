@@ -8,6 +8,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- ============================================================
+       MathJax — configuração para reconhecer $...$ e $$...$$
+       ============================================================ -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async id="MathJax-script"
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -30,7 +50,6 @@
       <div class="container">
         <div class="viewer-toolbar">
           <a href="javascript:history.back()" class="viewer-back">← Voltar</a>
-          <a id="raw-download" class="viewer-download" href="#" download>Baixar .md</a>
         </div>
 
         <article id="markdown-content" class="markdown-body">
@@ -47,17 +66,16 @@
     </div>
   </footer>
 
-  <!-- marked.js — renderiza markdown no navegador -->
+  <!-- marked.js -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Lógica do visualizador -->
   <script>
     (function () {
       const params = new URLSearchParams(window.location.search);
       const file = params.get('file');
       const container = document.getElementById('markdown-content');
-      const downloadLink = document.getElementById('raw-download');
 
-      // Sanitização básica: Aceita nomes com letras, números, _ - / . % e também espaços
-      // (o navegador codifica espaços como %20 e parênteses como %28/%29)
       const safePattern = /^[a-zA-Z0-9_\-\/\.%\s\(\)]+\.md$/;
 
       if (!file || !safePattern.test(file)) {
@@ -65,10 +83,20 @@
         return;
       }
 
-      // Título da aba a partir do nome do arquivo
       const niceName = decodeURIComponent(file.split('/').pop().replace(/\.md$/, ''));
       document.title = niceName + ' — Jeann Rocha';
-      downloadLink.href = file;
+
+      // Função que, depois de renderizar o markdown, manda o MathJax processar
+      function typesetMath() {
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          window.MathJax.typesetPromise([container]).catch(function (err) {
+            console.warn('Erro no MathJax:', err);
+          });
+        } else {
+          // MathJax ainda não carregou — espera e tenta de novo
+          setTimeout(typesetMath, 200);
+        }
+      }
 
       fetch(file)
         .then(function (r) {
@@ -77,7 +105,8 @@
         })
         .then(function (text) {
           container.innerHTML = marked.parse(text);
-          // Deixa links externos abrirem em nova aba
+
+          // Links externos abrem em nova aba
           container.querySelectorAll('a').forEach(function (a) {
             const href = a.getAttribute('href') || '';
             if (/^https?:\/\//.test(href)) {
@@ -85,6 +114,9 @@
               a.setAttribute('rel', 'noopener');
             }
           });
+
+          // Agora processa as fórmulas
+          typesetMath();
         })
         .catch(function (err) {
           container.innerHTML = '<p><strong>Erro:</strong> ' + err.message + '</p>';
