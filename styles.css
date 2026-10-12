@@ -501,49 +501,103 @@ p { margin-bottom: 1rem; }
 
 .monitoria-prof strong { font-weight: 600; }
 
-/* -------- Grupos de materiais dentro do cartão -------- */
-.material-group {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px dashed var(--color-border);
+/* ============================================================
+   ACORDEÃO DE MATERIAIS
+   ============================================================ */
+.material-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: auto;
 }
 
-.material-group:first-of-type {
-  border-top: none;
-  padding-top: 0;
-  margin-top: 0;
+.material-accordion details {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg);
+  overflow: hidden;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
-.material-group-title {
-  display: inline-block;
-  font-size: 0.72rem;
+.material-accordion details[open] {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.material-accordion summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.65rem 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-weight: 600;
-  color: var(--color-accent);
-  background: #eef2ff;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  margin-bottom: 0.6rem;
+  color: var(--color-text);
+  user-select: none;
+  transition: background 0.15s, color 0.15s;
 }
 
+.material-accordion summary::-webkit-details-marker { display: none; }
+
+.material-accordion summary::before {
+  content: '▸';
+  color: var(--color-accent);
+  font-size: 0.9em;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.material-accordion details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.material-accordion summary:hover {
+  background: var(--color-bg-alt);
+}
+
+.material-accordion details[open] summary {
+  background: #eef2ff;
+  color: var(--color-accent);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.material-count {
+  margin-left: auto;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--color-bg-alt);
+  color: var(--color-text-light);
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  letter-spacing: 0;
+}
+
+.material-accordion details[open] .material-count {
+  background: #ffffff;
+  color: var(--color-accent);
+}
+
+/* Lista interna de PDFs */
 .materials-list {
   list-style: none;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  padding-left: 0;
+  gap: 0.35rem;
 }
 
 .materials-list li { margin: 0; }
 
 .materials-list a {
   display: block;
-  padding: 0.5rem 0.75rem;
+  padding: 0.45rem 0.65rem;
   background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
-  border-radius: 8px;
-  font-size: 0.9rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
   font-weight: 500;
   color: var(--color-text);
   transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.15s;
