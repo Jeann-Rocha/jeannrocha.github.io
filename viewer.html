@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visualizador — Jeann Rocha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Jeann Rocha</a>
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="notas.html">Notas</a>
+        <a href="monitorias.html" class="active">Monitorias</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="viewer-toolbar">
+          <a href="javascript:history.back()" class="viewer-back">← Voltar</a>
+          <a id="raw-download" class="viewer-download" href="#" download>Baixar .md</a>
+        </div>
+
+        <article id="markdown-content" class="markdown-body">
+          <p class="viewer-loading">Carregando…</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Jeann Rocha</p>
+      <p class="footer-note"><a href="#top">Voltar ao topo ↑</a></p>
+    </div>
+  </footer>
+
+  <!-- marked.js — renderiza markdown no navegador -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const file = params.get('file');
+      const container = document.getElementById('markdown-content');
+      const downloadLink = document.getElementById('raw-download');
+
+      // Sanitização básica: aceita apenas .md dentro de pastas do site
+      const safePattern = /^[a-zA-Z0-9_\-\/]+\.md$/;
+
+      if (!file || !safePattern.test(file)) {
+        container.innerHTML = '<p><strong>Arquivo não especificado ou inválido.</strong></p>';
+        return;
+      }
+
+      // Título da aba a partir do nome do arquivo
+      const niceName = decodeURIComponent(file.split('/').pop().replace(/\.md$/, ''));
+      document.title = niceName + ' — Jeann Rocha';
+      downloadLink.href = file;
+
+      fetch(file)
+        .then(function (r) {
+          if (!r.ok) throw new Error('Não foi possível carregar o arquivo (HTTP ' + r.status + ').');
+          return r.text();
+        })
+        .then(function (text) {
+          container.innerHTML = marked.parse(text);
+          // Deixa links externos abrirem em nova aba
+          container.querySelectorAll('a').forEach(function (a) {
+            const href = a.getAttribute('href') || '';
+            if (/^https?:\/\//.test(href)) {
+              a.setAttribute('target', '_blank');
+              a.setAttribute('rel', 'noopener');
+            }
+          });
+        })
+        .catch(function (err) {
+          container.innerHTML = '<p><strong>Erro:</strong> ' + err.message + '</p>';
+        });
+    })();
+  </script>
+
+</body>
+</html>
