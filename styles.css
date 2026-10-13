@@ -761,3 +761,10 @@ p { margin-bottom: 1rem; }
 
 /* Ícone diferente para markdown */
 .materials-list a.md-link::before { content: '📝'; }
+
+.note-observation {
+  font-size: 0.82rem;
+  color: #718096;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
